@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>JavaScript</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<style>
+				#container {
+							width: 300px;
+							height: 300px;
+							position: relative;
+							background: yellow;
+							}
+				#animate {
+						width: 50px;
+						height: 50px;
+						position: absolute;
+						background-color: red;
+						}
+		</style>
+	</head>
+	<body>
+		<h2 id="id01">What can javascript do?</h2>
+		<button type="button" onclick="document.getElementById('id01').style.color = 'red'">Click here change heading color red</button>
+		<hr>
+		
+		<p id="id02">JavaScript can change HTML containt.</p>
+		<button type="button" onclick='document.getElementById("id02").innerHTML="Hello JavaScript"'>Click me to change HTML containt</button>
+		<hr>
+		
+		<p id="p1">This text will be hide on clicking hide button and will be show again when click on show</p>
+		<input type="button" value="Hide text" onclick="document.getElementById('p1').style.visibility='hidden'">
+		<input type="button" value="Show text" onclick="document.getElementById('p1').style.visibility='visible'">
+		<hr>
+		
+		<p><button onclick="myMove()">Click for animation</button></p> 
+		<div id ="container">
+			<div id ="animate"></div>
+		</div>
+		<script>
+			function myMove() {
+			var elem = document.getElementById("animate");   
+			var pos = 0;
+			var id = setInterval(frame, 5);
+			function frame() {
+				if (pos == 250) {
+					clearInterval(id);
+				} else {
+						pos++; 
+						elem.style.top = pos + 'px'; 
+						elem.style.left = pos + 'px'; 
+						}
+				}
+			}
+		</script>
+		<hr>
+		
+		<h1 onclick="this.innerHTML='Ooops!'">Click on this text!</h1>
+		<hr>
+		
+		<button onclick="displayDate()">The time is?</button>
+		<script>
+			function displayDate() {
+				document.getElementById("id03").innerHTML = Date();
+			}
+		</script>
+		<p id="id03"></p>
+		<hr>
+		
+		Enter your name:
+		<input type="text" id="fname" onchange="myFunction()">
+		<p>When you leave the input field, a function is triggered which transforms the input text to upper case.</p>
+		<script>
+			function myFunction() {
+				var x = document.getElementById("fname");
+				x.value = x.value.toUpperCase();
+			}
+		</script>
+		<hr>
+		
+		<div onmouseover="mOver(this)" onmouseout="mOut(this)" style="background-color:gray;width:120px;height:20px;padding:40px;">Mouse Over Me</div>
+		<script>
+			function mOver(obj) {
+				obj.innerHTML = "Thank You";		
+				obj.style.backgroundColor="powderblue";
+			}
+			function mOut(obj) {
+				obj.innerHTML = "Mouse Over Me"
+				obj.style.backgroundColor="gray";
+			}
+		</script>
+		<hr>
+		
+	</body>
+</html>
